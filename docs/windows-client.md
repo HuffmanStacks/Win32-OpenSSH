@@ -2,11 +2,13 @@
 
 ## Check the local client
 
-Run this from the repository root in a Windows terminal with PowerShell 7.3 or later.
+From the repository root in PowerShell 7.3 or later, including Codex's Windows PowerShell shell, run the script directly.
 
 ```powershell
-pwsh -NoProfile -File ./tools/Invoke-WindowsOpenSSH.ps1
+& ./tools/Invoke-WindowsOpenSSH.ps1
 ```
+
+From Bash or Command Prompt, run `pwsh -NoProfile -File ./tools/Invoke-WindowsOpenSSH.ps1`. The direct PowerShell invocation works with Codex's Windows MXC sandbox in read-only mode.
 
 The check prints `OPENSSH_CLIENT_OK` and the installed OpenSSH version. It uses the Windows-serviced client by absolute path, restores the Windows common application data path for this process if a launcher omitted `ProgramData`, and parses an offline configuration with host-key checking on and forwarding off. The Windows update channel services the client. [Microsoft OpenSSH guidance](https://learn.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse)
 
@@ -24,10 +26,12 @@ The command uses the user's existing SSH configuration and authentication. It re
 | --- | --- |
 | Codex CLI and Claude Code | Open this checkout as a local project and run the Windows command above. Both agents have project instructions in this checkout. |
 | VS Code extensions | Run the check in a local Windows terminal with the Codex or Claude Code extension. To select the Windows-serviced client for VS Code Remote - SSH, set `remote.SSH.path` to `C:\\Windows\\System32\\OpenSSH\\ssh.exe` in the relevant VS Code profile. |
-| ChatGPT desktop | Run the check from the local project. For a remote project, use Settings → Connections → SSH with an existing verified host alias and an authenticated Codex installation on that host. |
-| Claude desktop | Run the check from a local Windows project. For a remote project, add a verified host alias under the SSH tab when choosing the Code environment. |
+| ChatGPT desktop | Run the check from the local project. For a remote project, use Settings → Connections → SSH with a verified host alias for a dedicated account and an authenticated Codex installation on that host. |
+| Claude desktop | Run the check from a local Windows project. For a remote project, add a verified host alias for a dedicated account under the SSH tab when choosing the Code environment. |
 | Browser and browser extensions | Use an authorized Windows shell connected to ChatGPT Work, or a local Claude Code session through Anthropic's Remote Control. Claude Code can use the Claude in Chrome extension in Chrome or Edge while the shell runs locally. |
 | Hosted coding sessions | Open the GitHub fork for source and reviews. SSH commands run in the session's own environment. Use the SSH client supplied by that environment. |
+
+Use a remote development account without sudo or access to a privileged container runtime for desktop agent sessions.
 
 [ChatGPT remote connections](https://learn.chatgpt.com/docs/remote-connections) · [Claude desktop](https://code.claude.com/docs/en/desktop) · [Claude Remote Control](https://code.claude.com/docs/en/remote-control) · [Claude in Chrome](https://code.claude.com/docs/en/chrome) · [VS Code Remote SSH](https://code.visualstudio.com/docs/remote/troubleshooting)
 
