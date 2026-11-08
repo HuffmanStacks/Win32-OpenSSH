@@ -4,6 +4,10 @@ This repo (https://github.com/PowerShell/Win32-OpenSSH) is being maintained to k
 and because it contains the [wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki)
 which has instructions for [building](https://github.com/PowerShell/Win32-OpenSSH/wiki/Building-OpenSSH-for-Windows-(using-LibreSSL-crypto)).
 
+### HuffmanStacks client integration
+
+See the [Windows client guide](docs/windows-client.md) for Codex, Claude Code, desktop, and browser workflows. Source fixes live in [HuffmanStacks/openssh-portable](https://github.com/HuffmanStacks/openssh-portable).
+
 ### Release History
 
 | Date | Version | Release with source |
